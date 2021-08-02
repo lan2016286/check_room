@@ -38,12 +38,12 @@ def get_date(string):
 
 
 def money_room():
-    roomtype = request.values.get('romtype')
+    roomtype = request.values.get('roomtype')
     indate = request.values.get('indate')
     outdate = request.values.get('outdate')
     in_date = datetime.strptime(indate, "%Y-%m-%d").date()
     out_date = datetime.strptime(outdate, "%Y-%m-%d").date()
     sub_day = (out_date - in_date).days
-    money = sub_day * 1000000
+    money = sub_day * money_room_type[roomtype]
     return money
 
